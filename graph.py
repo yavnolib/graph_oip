@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from textwrap import wrap
 
 #################### СЧИТЫВАНИЕ ДАННЫХ #################################
 voltage = []
@@ -22,10 +21,12 @@ fig, ax = plt.subplots()
 ax.plot(x, voltage, 'g.-', label = 'V (t)')
 ax.text(0.75 * time, 2, f'Время заряда = {zaryad} c.',
         fontsize = 11,
-        color = 'r')
+        color = 'r',
+        wrap = True)
 ax.text(0.75 * time , 1.5, f'Время разряда = {razryad} c.',
         fontsize = 11,
-        color = 'r')
+        color = 'r',
+        wrap = True)
 ax.minorticks_on()
 ax.grid(which = 'major',
         color = 'k',
@@ -34,7 +35,7 @@ ax.grid(which = 'minor',
         color = 'k',
         linestyle = ':')
 ax.set(xlim = (x.min(), x.max()), ylim = (voltage.min(), voltage.max()))
-plt.title('\n'.join(wrap(title,60)), fontsize=14)
+plt.title(title, wrap = True)
 fig.set_figwidth(12)
 fig.set_figheight(8)
 plt.xlabel('Время,с ')
